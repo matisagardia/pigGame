@@ -80,11 +80,11 @@ holdBtn.addEventListener("click", () => {
     current1.textContent = currentScore;
 
     // Condition to stop the game when there is a winner
-    if (score0 >= 10) {
+    if (score0 >= 20) {
         playing = false;
         player0.classList.add("player--winner");
         player0.classList.remove("player--active");
-    } else if (score1 >= 10){
+    } else if (score1 >= 20){
         playing = false;
         player1.classList.add("player--winner");
         player1.classList.remove("player--active");
@@ -95,6 +95,7 @@ newMatchBtn.addEventListener("click", () => {
     playing = true;
     player0.classList.remove("player--winner");
     player1.classList.remove("player--winner");
+    player1.classList.remove("active--player");
     scorePlayer0.textContent = 0;
     scorePlayer1.textContent = 0;
     dice.classList.add('hidden');
