@@ -20,11 +20,13 @@ let currentScore = 0;
 let activePlayer = 0;
 let score0 = 0;
 let score1 = 0;
+let playing = true;
 
 
 // Roll the dice
 
 rollBtn.addEventListener("click", () => {
+    if(playing){
     let diceNumber = Math.trunc(Math.random() * 6) + 1;
     dice.classList.remove("hidden");
 
@@ -36,6 +38,7 @@ rollBtn.addEventListener("click", () => {
     }
 
     // Conditionals for each number
+
     if(diceNumber == 1) {
         dice.src = './images/dice-1.png';
         currentScore = 0;
@@ -60,10 +63,12 @@ rollBtn.addEventListener("click", () => {
         dice.src = './images/dice-6.png';
         diceToScore();
     }
-})
+}})
 
+// Event listener for the hold button
 
 holdBtn.addEventListener("click", () => {
+    // Acumulating the current score on the user's score and making each turn
     activePlayer == 0 ? score0 += currentScore : score1 += currentScore;
     scorePlayer0.textContent = score0;
     scorePlayer1.textContent = score1;
@@ -73,6 +78,17 @@ holdBtn.addEventListener("click", () => {
     currentScore = 0;
     current0.textContent = currentScore;
     current1.textContent = currentScore;
+
+    // Condition to stop the game when there is a winner
+    if (score0 >= 100) {
+        playing = false;
+        player0.classList.add("player--winner");
+        player0.classList.remove("player--active");
+    } else if (score1 >= 100){
+        playing = false;
+        player1.classList.add("player--winner");
+        player1.classList.remove("player--active");
+    }
 })
 
 newMatchBtn.addEventListener("click", () => {
@@ -85,4 +101,5 @@ newMatchBtn.addEventListener("click", () => {
     activePlayer = 0;
     score0 = 0;
     score1 = 0;
+
 })
