@@ -94,6 +94,7 @@ holdBtn.addEventListener("click", () => {
 newMatchBtn.addEventListener("click", () => {
     playing = true;
     player0.classList.remove("player--winner");
+    player0.classList.add("active--player");
     player1.classList.remove("player--winner");
     player1.classList.remove("active--player");
     scorePlayer0.textContent = 0;
