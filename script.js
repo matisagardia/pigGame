@@ -80,11 +80,11 @@ holdBtn.addEventListener("click", () => {
     current1.textContent = currentScore;
 
     // Condition to stop the game when there is a winner
-    if (score0 >= 20) {
+    if (score0 >= 100) {
         playing = false;
         player0.classList.add("player--winner");
         player0.classList.remove("player--active");
-    } else if (score1 >= 20){
+    } else if (score1 >= 100){
         playing = false;
         player1.classList.add("player--winner");
         player1.classList.remove("player--active");
